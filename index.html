@@ -42,12 +42,20 @@
         <p>Download my resume: <a href="resume.pdf" download>Click Here</a></p>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section with Icons -->
     <section id="contact">
         <h2>Contact Me</h2>
-        <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
-        <a href="https://github.com/yourgithub" target="_blank">GitHub</a>
-        <a href="mailto:your.email@example.com">Email</a>
+        <div class="contact-links">
+            <a href="https://www.linkedin.com/in/yourprofile" target="_blank">
+                <img src="linkedin.png" alt="LinkedIn">
+            </a>
+            <a href="https://github.com/yourgithub" target="_blank">
+                <img src="github.png" alt="GitHub">
+            </a>
+            <a href="mailto:your.email@example.com">
+                <img src="email.png" alt="Email">
+            </a>
+        </div>
     </section>
 
     <!-- Chatbot Section -->
@@ -56,7 +64,6 @@
         <div class="chat-container">
             <div id="chatbox"></div>
             <input type="text" id="userInput" placeholder="Ask something...">
-            <button onclick="sendMessage()">Send</button>
         </div>
     </section>
 
