@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <h1>Your Name</h1>
+        <nav>
+            <a href="#skills">Skills</a>
+            <a href="#resume">Resume</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Introduction Section -->
+    <section class="intro">
+        <h2>Welcome to My Portfolio</h2>
+        <p>I am a Data & DevOps Engineer with expertise in cloud computing, automation, and AI-powered solutions.</p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>Python, FastAPI, Flask</li>
+            <li>Docker, Kubernetes, Terraform</li>
+            <li>AWS, GCP, Azure</li>
+            <li>CI/CD, Jenkins, GitHub Actions</li>
+        </ul>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume">
+        <h2>Resume</h2>
+        <p>Download my resume: <a href="resume.pdf" download>Click Here</a></p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+        <a href="https://github.com/yourgithub" target="_blank">GitHub</a>
+        <a href="mailto:your.email@example.com">Email</a>
+    </section>
+
+    <!-- Chatbot Section -->
+    <section id="chatbot">
+        <h2>Chat with My AI</h2>
+        <div class="chat-container">
+            <div id="chatbox"></div>
+            <input type="text" id="userInput" placeholder="Ask something...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </section>
+
+</body>
+</html>
