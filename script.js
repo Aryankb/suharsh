@@ -5,40 +5,44 @@ document.getElementById("userInput").addEventListener("keypress", function(event
 });
 
 function sendMessage() {
-    let userInput = document.getElementById("userInput").value;
-    if (userInput.trim() === "") return;
+    let userInput = document.getElementById("userInput").value.trim();
+    if (userInput === "") return;
 
     let chatbox = document.getElementById("chatbox");
 
     // Display user message
-    let userMessage = `<div style="text-align:right; margin:5px;">
-                        <b>You:</b> ${userInput}
-                      </div>`;
-    chatbox.innerHTML += userMessage;
+    let userMessage = document.createElement("div");
+    userMessage.className = "message user";
+    userMessage.innerText = userInput;
+    chatbox.appendChild(userMessage);
 
-    // Show "Thinking..." before response
-    let thinkingMessage = `<div id="thinking" style="text-align:left; margin:5px; color: gray;">
-                            AI is thinking...
-                          </div>`;
-    chatbox.innerHTML += thinkingMessage;
+    // Show "Thinking..." message
+    let aiThinking = document.createElement("div");
+    aiThinking.className = "message ai";
+    aiThinking.innerText = "AI is thinking...";
+    chatbox.appendChild(aiThinking);
+    chatbox.scrollTop = chatbox.scrollHeight;
 
-    // Send request to API
-    fetch("https://suharsh.onrender.com/chatbot", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: userInput })
-    })
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById("thinking").remove(); // Remove thinking message
-        
-        // Display AI response
-        let botMessage = `<div style="text-align:left; margin:5px;">
-                            <b>AI:</b> ${data.answer}
-                          </div>`;
-        chatbox.innerHTML += botMessage;
-        chatbox.scrollTop = chatbox.scrollHeight;
-    });
+    // Simulate API call
+    setTimeout(() => {
+        aiThinking.remove(); // Remove "Thinking..." message
+
+        // Fetch AI response
+        fetch("https://suharsh.onrender.com/chatbot", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ question: userInput })
+        })
+        .then(response => response.json())
+        .then(data => {
+            let aiMessage = document.createElement("div");
+            aiMessage.className = "message ai";
+            aiMessage.innerText = data.answer;
+            chatbox.appendChild(aiMessage);
+            chatbox.scrollTop = chatbox.scrollHeight;
+        });
+
+    }, 1000);
 
     // Clear input field
     document.getElementById("userInput").value = "";
