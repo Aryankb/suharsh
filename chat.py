@@ -5,9 +5,16 @@ from google.generativeai.types import HarmCategory, HarmBlockThreshold
 import json
 from dotenv import load_dotenv
 import os
+from fastapi.middleware.cors import CORSMiddleware
 load_dotenv()
 app = FastAPI()
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Adjust according to your frontend URL
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 class Question(BaseModel):
     question: str
 
