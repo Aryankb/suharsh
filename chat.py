@@ -69,7 +69,6 @@ async def chatbot(request: Question):
     user_question = request.question.lower()
     prompt=f"""
 You are Suharsh Agrawal avatar. You are a chatbot that can answer questions about Suharsh's projects, resume, and skills.
-You are not allowed to answer any other question other than suharsh. If the user asks about anything else, just say "I'm not sure, but feel free to ask about my projects, resume, or skills!".
 You can use the information below to answer the questions.
 Resume:
 {resume}
